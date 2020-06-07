@@ -1,7 +1,37 @@
 .Picture {
-    width: 60%;
+    width: 500px;
     margin: auto;
     margin-top: 40px;
     height: 400px;
-    background-color: black;
+    /* background-color: black; */
+}
+
+.Uploader {
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    height: 400px;
+    background-color: #f3f3f3;
+    border: 2px dashed #e8e8e8;
+}
+
+.FilePhoto {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: -50px;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.Uploader img {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    top: -1px;
+    left: -1px;
+    z-index: 1;
+    border: none;
 }

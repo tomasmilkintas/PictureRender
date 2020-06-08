@@ -11,9 +11,9 @@
 }
 
 .Success {
-    background-color: #77addf;
+    background-color: #78df77;
 }
 
 .Danger {
-    background-color: #b93d39;
+    background-color: rgb(142, 117, 223);
 }

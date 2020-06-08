@@ -10,13 +10,13 @@ class PictureRender extends Component {
         return (
             <Aux>
                 <div className={styles.PictureRender}>
-                    <h2>Picture Rendering Masterpiece</h2>
+                    <h2>Your Picture Rendering Masterpiece</h2>
                     <Picture />
                 </div>
                 <div>
                     <p>View Results:</p>
-                    <Button btnType="Success">Continue</Button>
-                    <Button btnType="Danger">Reset</Button>
+                    <Button btnType="Danger">BACK TO HOMEPAGE</Button>
+                    <Button btnType="Success">CONTINUE</Button>
                 </div>
             </Aux>
         );

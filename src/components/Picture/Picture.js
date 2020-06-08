@@ -3,14 +3,17 @@ import React, { Component } from "react";
 import styles from "./Picture.module.css";
 
 class Picture extends Component {
-    // state = {
-    //     content: "",
-    // };
+    resetHandler = () => {
+        let image = document.querySelector("img");
+        image.src = "";
+    };
 
     render() {
         function handleFile(e) {
             const content = e.target.result;
             console.log(content);
+            let image = document.querySelector("img");
+            image.src = content;
             // You can set content in state and show it in render.
         }
 
@@ -23,8 +26,15 @@ class Picture extends Component {
         return (
             <div className={styles.Picture}>
                 <div className={styles.Uploader}>
-                    click here or drag here your images for preview and set picture data
-                    <img src="" alt="" show={this.state.content} />
+                    <p>
+                        Click the highlighted area to <span>select</span>
+                    </p>{" "}
+                    <p>OR </p>
+                    <p>
+                        {" "}
+                        <span>Drag and drop</span> your images on it for a preview!
+                    </p>
+                    <img src="" alt="" />
                     <input
                         type="file"
                         name="picture"
@@ -32,6 +42,7 @@ class Picture extends Component {
                         onChange={(e) => handleChangeFile(e.target.files[0])}
                     />
                 </div>
+                <button onClick={this.resetHandler}>Not happy with your selection? Reset</button>
             </div>
         );
     }

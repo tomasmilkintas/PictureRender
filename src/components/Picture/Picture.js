@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import styles from "./Picture.module.css";
+// import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
 
 class Picture extends Component {
     resetHandler = () => {
@@ -11,10 +12,9 @@ class Picture extends Component {
     render() {
         function handleFile(e) {
             const content = e.target.result;
-            console.log(content);
             let image = document.querySelector("img");
             image.src = content;
-            // You can set content in state and show it in render.
+            console.log(content);
         }
 
         function handleChangeFile(file) {

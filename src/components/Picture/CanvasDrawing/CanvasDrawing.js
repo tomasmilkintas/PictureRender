@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import CanvasDraw from "react-canvas-draw";
-// import styles from "./CanvasDrawing.module.css";
+import styles from "./CanvasDrawing.module.css";
 
 class CanvasDrawing extends Component {
     state = {
@@ -13,7 +13,6 @@ class CanvasDrawing extends Component {
         lazyRadius: 12,
     };
     componentDidMount() {
-        // let's change the color randomly every 2 seconds. fun!
         window.setInterval(() => {
             this.setState({
                 color: "#" + Math.floor(Math.random() * 16777215).toString(16),
@@ -21,14 +20,7 @@ class CanvasDrawing extends Component {
         }, 2000);
     }
     render() {
-        return (
-            <CanvasDraw
-                hideGrid
-                hideInterface
-                brushColor={this.state.color}
-                imgSrc="https://techcrunch.com/wp-content/uploads/2019/05/Screen-Shot-2019-05-22-at-8.43.37-AM.jpg"
-            />
-        );
+        return <CanvasDraw brushColor={this.state.color} imgSrc="" />;
     }
 }
 

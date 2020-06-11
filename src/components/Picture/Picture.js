@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import styles from "./Picture.module.css";
-// import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
+import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
 
 class Picture extends Component {
     resetHandler = () => {
@@ -43,6 +43,9 @@ class Picture extends Component {
                     />
                 </div>
                 <button onClick={this.resetHandler}>Not happy with your selection? Reset</button>
+                <div>
+                    <CanvasDrawing hideGrid hideInterface />
+                </div>
             </div>
         );
     }

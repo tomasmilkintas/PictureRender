@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 
 import CanvasDraw from "react-canvas-draw";
-import styles from "./CanvasDrawing.module.css";
+// import styles from "./CanvasDrawing.module.css";
 
 class CanvasDrawing extends Component {
     state = {

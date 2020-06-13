@@ -9,21 +9,13 @@ class Picture extends Component {
     };
 
     resetHandler = () => {
-        let image = document.querySelector("img");
-        image.src = "";
-        // this.setState({ source: "" });
+        this.setState({ source: "" });
     };
 
     pictureHandler = (file) => {
         let reader = new FileReader();
-        reader.onloadend = function handleFile(e) {
-            const content = e.target.result;
-            let image = document.querySelector("img");
-            image.src = content;
-            // this.setState({ source: content });
-        };
+        reader.onloadend = (e) => this.setState({ source: e.target.result });
         reader.readAsDataURL(file);
-        console.log(reader);
     };
 
     render() {

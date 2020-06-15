@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import styles from "./Picture.module.css";
 // import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
+import CanvasDraw from "react-canvas-draw";
+import SuccessBaby from "../../assets/success-baby.jpg";
 
 class Picture extends Component {
     state = {
@@ -41,7 +43,9 @@ class Picture extends Component {
                 <button onClick={this.resetHandler.bind(this)}>
                     Not happy with your selection? Reset
                 </button>
-                <div>{/* <CanvasDrawing hideGrid hideInterface /> */}</div>
+                <div>
+                    <CanvasDraw hideGrid hideInterface imgSrc={SuccessBaby} />
+                </div>
             </div>
         );
     }

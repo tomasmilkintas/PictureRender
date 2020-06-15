@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
 
 import CanvasDraw from "react-canvas-draw";
 // import styles from "./CanvasDrawing.module.css";
 
 class CanvasDrawing extends Component {
-    state = {
-        color: "#ffc600",
-        width: 400,
-        height: 400,
-        brushRadius: 10,
-        lazyRadius: 12,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            color: "#ffc600",
+            width: 400,
+            height: 400,
+            brushRadius: 10,
+            lazyRadius: 12,
+        };
+    }
+
     componentDidMount() {
         window.setInterval(() => {
             this.setState({
@@ -20,7 +23,7 @@ class CanvasDrawing extends Component {
         }, 2000);
     }
     render() {
-        return <CanvasDraw brushColor={this.state.color} imgSrc="" />;
+        return <CanvasDraw brushColor={this.state.color} imgSrc={this.props.source} />;
     }
 }
 

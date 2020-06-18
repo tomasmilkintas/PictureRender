@@ -16,7 +16,7 @@ p {
 .tools {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 600px;
 }
 
 input[type="number"] {

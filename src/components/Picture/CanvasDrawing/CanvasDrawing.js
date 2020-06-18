@@ -1,37 +1,22 @@
 import React, { Component } from "react";
-import axios from "../../../axios-orders";
+// import axios from "../../../axios-orders";
 
 import CanvasDraw from "react-canvas-draw";
-import SuccessBaby from "../../../assets/success-baby.jpg";
-// import styles from "./CanvasDrawing.module.css";
+import images from "../../../assets/images";
+import styles from "./CanvasDrawing.module.css";
 
 class CanvasDrawing extends Component {
     constructor(props) {
         super(props);
         this.state = {
             color: "#ffc600",
-            width: 400,
-            height: 400,
+            width: 700,
+            height: 437,
             brushRadius: 10,
-            lazyRadius: 12,
-            imgSrc: SuccessBaby,
+            lazyRadius: 30,
+            imgSrc: images[Math.floor(Math.random() * 5)],
         };
     }
-
-    getHandler = (event) => {
-        event.preventDefault();
-        axios
-            .get("/source.json")
-            .then((res) => {
-                // this.setState({ imgSrc: response });
-
-                this.setState({ imgSrc: res });
-                console.log(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
 
     componentDidMount() {
         window.setInterval(() => {
@@ -43,8 +28,15 @@ class CanvasDrawing extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.getHandler.bind(this)}>Apply that to the canvas below</button>
-                <CanvasDraw brushColor={this.state.color} imgSrc={this.state.imgSrc} />
+                <CanvasDraw
+                    canvasWidth={this.state.width}
+                    canvasHeight={this.state.height}
+                    className={styles.CanvasDrawing}
+                    brushColor={this.state.color}
+                    brushRadius={this.state.brushRadius}
+                    lazyRadius={this.state.lazyRadius}
+                    imgSrc={this.state.imgSrc}
+                />
             </div>
         );
     }

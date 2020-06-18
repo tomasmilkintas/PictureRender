@@ -14,7 +14,7 @@ class CanvasDrawing extends Component {
             height: 400,
             brushRadius: 10,
             lazyRadius: 12,
-            imgSrc: "",
+            imgSrc: SuccessBaby,
         };
     }
 
@@ -44,8 +44,7 @@ class CanvasDrawing extends Component {
         return (
             <div>
                 <button onClick={this.getHandler.bind(this)}>Apply that to the canvas below</button>
-                <img src={this.state.imgSrc} alt="" />
-                <CanvasDraw brushColor={this.state.color} />
+                <CanvasDraw brushColor={this.state.color} imgSrc={this.state.imgSrc} />
             </div>
         );
     }

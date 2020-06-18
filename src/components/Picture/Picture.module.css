@@ -1,8 +1,8 @@
 .Picture {
-    width: 700px;
+    width: 732px;
+    height: 549px;
     margin: auto;
     margin-top: 40px;
-    height: 437px;
     border: 4px dashed #b1afaf;
 }
 
@@ -17,15 +17,15 @@ p > span {
 .Uploader {
     position: relative;
     overflow: hidden;
-    width: 700px;
-    height: 437px;
+    width: 732px;
+    height: 549px;
     background-color: #f3f3f3;
 }
 
 .FilePhoto {
     position: absolute;
-    width: 700px;
-    height: 437px;
+    width: 732px;
+    height: 549px;
     top: 0;
     left: 0;
     z-index: 2;
@@ -35,8 +35,8 @@ p > span {
 
 .Uploader img {
     position: absolute;
-    width: 710px;
-    height: 447px;
+    width: 732px;
+    height: 549px;
     top: -1px;
     left: -1px;
     z-index: 1;

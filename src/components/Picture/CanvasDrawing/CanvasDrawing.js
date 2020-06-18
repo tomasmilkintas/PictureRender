@@ -10,11 +10,11 @@ class CanvasDrawing extends Component {
         super(props);
         this.state = {
             color: "#ffc600",
-            width: 700,
-            height: 437,
-            brushRadius: 10,
+            width: 750,
+            height: 562.5,
+            brushRadius: 14,
             lazyRadius: 30,
-            imgSrc: images[Math.floor(Math.random() * 5)],
+            imgSrc: images[Math.floor(Math.random() * 6)],
         };
     }
 
@@ -22,6 +22,8 @@ class CanvasDrawing extends Component {
         window.setInterval(() => {
             this.setState({
                 color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+                // brushRadius: Math.floor(Math.random() * 30),
+                // lazyRadius: Math.floor(Math.random() * 50),
             });
         }, 2000);
     }

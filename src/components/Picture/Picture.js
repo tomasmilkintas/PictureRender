@@ -1,13 +1,38 @@
 import React, { Component } from "react";
+import axios from "../../axios-orders";
 
 import styles from "./Picture.module.css";
-// import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
-import CanvasDraw from "react-canvas-draw";
+import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
+// import CanvasDraw from "react-canvas-draw";
 import SuccessBaby from "../../assets/success-baby.jpg";
 
 class Picture extends Component {
     state = {
         source: "",
+    };
+
+    updateHandle = (event) => {
+        event.preventDefault();
+
+        this.setState((prevState) => {
+            return {
+                source: prevState.source,
+            };
+        });
+        console.log(this.state.source);
+        const source = {
+            source: this.state.source,
+            // id: Math.random(),
+        };
+        axios
+            .post("/source.json", source)
+            .then((response) => {
+                this.setState({ source: source });
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     resetHandler = () => {
@@ -43,8 +68,11 @@ class Picture extends Component {
                 <button onClick={this.resetHandler.bind(this)}>
                     Not happy with your selection? Reset
                 </button>
+                <hr />
+                <button onClick={this.updateHandle.bind(this)}>Store the data</button>
+                <hr />
                 <div>
-                    <CanvasDraw hideGrid hideInterface imgSrc={SuccessBaby} />
+                    <CanvasDrawing hideGrid hideInterface />
                 </div>
             </div>
         );

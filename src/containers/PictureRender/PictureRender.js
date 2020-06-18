@@ -14,11 +14,11 @@ class PictureRender extends Component {
                     <h2>Your Picture Rendering Masterpiece</h2>
                     <Picture />
                 </div>
-                <div>
+                {/* <div>
                     <p>View Results:</p>
                     <Button btnType="Danger">BACK TO HOMEPAGE</Button>
                     <Button btnType="Success">CONTINUE</Button>
-                </div>
+                </div> */}
             </Aux>
         );
     }

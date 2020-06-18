@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import axios from "../../../axios-orders";
 
 import CanvasDraw from "react-canvas-draw";
+import SuccessBaby from "../../../assets/success-baby.jpg";
 // import styles from "./CanvasDrawing.module.css";
 
 class CanvasDrawing extends Component {
@@ -12,8 +14,24 @@ class CanvasDrawing extends Component {
             height: 400,
             brushRadius: 10,
             lazyRadius: 12,
+            imgSrc: "",
         };
     }
+
+    getHandler = (event) => {
+        event.preventDefault();
+        axios
+            .get("/source.json")
+            .then((res) => {
+                // this.setState({ imgSrc: response });
+
+                this.setState({ imgSrc: res });
+                console.log(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     componentDidMount() {
         window.setInterval(() => {
@@ -23,7 +41,13 @@ class CanvasDrawing extends Component {
         }, 2000);
     }
     render() {
-        return <CanvasDraw brushColor={this.state.color} imgSrc={this.props.source} />;
+        return (
+            <div>
+                <button onClick={this.getHandler.bind(this)}>Apply that to the canvas below</button>
+                <img src={this.state.imgSrc} alt="" />
+                <CanvasDraw brushColor={this.state.color} />
+            </div>
+        );
     }
 }
 

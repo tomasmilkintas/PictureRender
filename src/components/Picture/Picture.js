@@ -51,6 +51,7 @@ class Picture extends Component {
                     </div>
                 </div>
                 <button>Reset Canvas</button>
+                <button>Undo Canvas</button>
             </div>
         );
     }

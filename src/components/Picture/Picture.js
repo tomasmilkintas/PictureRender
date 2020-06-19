@@ -50,8 +50,6 @@ class Picture extends Component {
                         <CanvasDrawing hideGrid hideInterface />
                     </div>
                 </div>
-                <button>Reset Canvas</button>
-                <button>Undo Canvas</button>
             </div>
         );
     }

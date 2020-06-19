@@ -18,12 +18,12 @@ class CanvasDrawing extends Component {
 
         this.state = {
             color: "#ffc600",
-            width: 550,
-            height: 362.5,
+            width: 650,
+            height: 462.5,
             brushRadius: 14,
             lazyRadius: 30,
-            imgSrc: images[Math.floor(Math.random() * 6)],
             saveData: null,
+            imgSrc: images[Math.floor(Math.random() * 9)],
         };
     }
 
@@ -44,15 +44,6 @@ class CanvasDrawing extends Component {
 
     // nextClicked = () => {};
 
-    componentDidMount() {
-        window.setInterval(() => {
-            this.setState({
-                color: "#" + Math.floor(Math.random() * 16777215).toString(16),
-                // brushRadius: Math.floor(Math.random() * 30),
-                // lazyRadius: Math.floor(Math.random() * 50),
-            });
-        }, 2000);
-    }
     render() {
         return (
             <div>
@@ -65,15 +56,42 @@ class CanvasDrawing extends Component {
                     brushRadius={this.state.brushRadius}
                     lazyRadius={this.state.lazyRadius}
                     imgSrc={this.state.imgSrc}
+                    loadTimeOffset={15}
                 />
 
                 <button onClick={() => this.clearClicked()}>Clear Canvas</button>
                 <button onClick={() => this.undoClicked()}>Undo Last Action</button>
                 <button onClick={() => this.saveClicked()}>Save Canvas</button>
                 <button onClick={() => this.loadClicked()}>Load Canvas</button>
+
                 <hr />
                 {/* <button onClick={() => this.prevClicked()}>Previous Background</button>
                 <button onClick={() => this.nextClicked()}>Next Background</button> */}
+                <div>
+                    <label>Brush-Radius:</label>
+                    <input
+                        type="number"
+                        value={this.state.brushRadius}
+                        onChange={(e) =>
+                            this.setState({ brushRadius: parseInt(e.target.value, 10) })
+                        }
+                    />
+                    <label>Lazy-Radius:</label>
+                    <input
+                        type="number"
+                        value={this.state.lazyRadius}
+                        onChange={(e) =>
+                            this.setState({ lazyRadius: parseInt(e.target.value, 10) })
+                        }
+                    />
+
+                    <label>Color Picker:</label>
+                    <input
+                        type="color"
+                        value={this.state.color}
+                        onChange={(e) => this.setState({ color: e.target.value })}
+                    />
+                </div>
             </div>
         );
     }

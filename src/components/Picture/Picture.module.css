@@ -1,6 +1,6 @@
 .Picture {
-    width: 732px;
-    height: 549px;
+    width: 800px;
+    height: 600px;
     margin: auto;
     margin-top: 40px;
     border: 4px dashed #b1afaf;
@@ -10,34 +10,13 @@
     margin-top: 20px;
 }
 
-p > span {
-    text-decoration: underline;
-}
-
 .Uploader {
     position: relative;
     overflow: hidden;
-    width: 732px;
-    height: 549px;
+    width: 800px;
+    height: 600px;
     background-color: #f3f3f3;
-}
-
-.FilePhoto {
-    position: absolute;
-    width: 732px;
-    height: 549px;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.Uploader img {
-    position: absolute;
-    width: 732px;
-    height: 549px;
-    top: -1px;
-    left: -1px;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

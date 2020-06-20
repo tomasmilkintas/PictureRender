@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { exportComponentAsJPEG } from "react-component-export-image";
 
 import CanvasDraw from "react-canvas-draw";
 import images from "../../../assets/images";
@@ -13,10 +14,11 @@ class CanvasDrawing extends Component {
         this.saveClicked = this.saveClicked.bind(this);
         this.loadClicked = this.loadClicked.bind(this);
 
+        this.minBrush = this.minBrush.bind(this);
+        this.normalBrush = this.normalBrush.bind(this);
+
         this.previousPicture = this.previousPicture.bind(this);
         this.nextPicture = this.nextPicture.bind(this);
-
-        // this.save = this.save.bind(this);
 
         this.state = {
             container: "",
@@ -24,7 +26,7 @@ class CanvasDrawing extends Component {
             width: 750,
             height: 562.5,
             brushRadius: 14,
-            lazyRadius: 30,
+            lazyRadius: 15,
             saveData: null,
             imgSrc: "",
             pointer: "",
@@ -39,6 +41,9 @@ class CanvasDrawing extends Component {
                 images[7],
                 images[8],
             ],
+            disabled: false,
+            hideGrid: false,
+            hideInterface: false,
         };
     }
 
@@ -74,13 +79,15 @@ class CanvasDrawing extends Component {
         }
     }
 
-    // save() {
-    //     const canvasSave = document.getElementById("resetCanvas");
-    //     const d = canvasSave.toDataURL("image/png");
-    //     const w = window.open("about:blank", "image from canvas");
-    //     w.document.write("<img src='" + d + "' alt='from canvas'/>");
-    //     console.log("Saved!");
-    // }
+    minBrush() {
+        this.setState({ brushRadius: 0 });
+        this.setState({ lazyRadius: 0 });
+    }
+
+    normalBrush() {
+        this.setState({ brushRadius: 14 });
+        this.setState({ lazyRadius: 15 });
+    }
 
     componentDidMount() {
         const randomizer = Math.floor(Math.random() * 8);
@@ -93,7 +100,9 @@ class CanvasDrawing extends Component {
         return (
             <div>
                 <CanvasDraw
-                    id="resetCanvas"
+                    hideGrid={this.state.hideGrid}
+                    disabled={this.state.disabled}
+                    hideInterface={this.state.hideInterface}
                     ref={this.clicked}
                     canvasWidth={this.state.width}
                     canvasHeight={this.state.height}
@@ -105,14 +114,13 @@ class CanvasDrawing extends Component {
                     imgSrc={this.state.imgs[this.state.pointer]}
                 />
                 <hr />
+                <button onClick={() => this.previousPicture()}>Previous Background</button>
+                <button onClick={() => this.nextPicture()}>Next Background</button>
+                <hr />
                 <button onClick={() => this.clearClicked()}>Clear Canvas</button>
                 <button onClick={() => this.undoClicked()}>Undo Last Action</button>
                 <button onClick={() => this.saveClicked()}>Save Canvas</button>
                 <button onClick={() => this.loadClicked()}>Load Canvas</button>
-                {/* 
-                <button onClick={() => this.save()} type="button">
-                    save
-                </button> */}
 
                 <hr />
                 <div>
@@ -140,9 +148,12 @@ class CanvasDrawing extends Component {
                         onChange={(e) => this.setState({ color: e.target.value })}
                     />
                     <hr />
-                    <button onClick={() => this.previousPicture()}>Previous Background</button>
-                    <button onClick={() => this.nextPicture()}>Next Background</button>
                 </div>
+                <button onClick={() => this.minBrush()}>
+                    Finished? Reduce the brush to zero before exporting
+                </button>
+                <button onClick={() => this.normalBrush()}>Changed your mind?</button>
+                <button onClick={() => exportComponentAsJPEG(this.clicked)}>Export As JPEG</button>
             </div>
         );
     }

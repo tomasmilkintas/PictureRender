@@ -10,11 +10,6 @@ class Layout extends Component {
         return (
             <Aux>
                 <Toolbar />
-                {/* <div className={styles.Layout}>
-                    <p>Home</p>
-                    <p>PictureRender</p>
-                    <p>Results</p>
-                </div> */}
                 <PictureRender />
             </Aux>
         );

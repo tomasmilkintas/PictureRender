@@ -4,10 +4,6 @@ import styles from "./Picture.module.css";
 import CanvasDrawing from "./CanvasDrawing/CanvasDrawing";
 
 class Picture extends Component {
-    state = {
-        source: "",
-    };
-
     // updateHandle = (event) => {
     //     event.preventDefault();
 

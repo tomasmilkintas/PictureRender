@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "../../../axios-orders";
 
 import CanvasDraw from "react-canvas-draw";
 import images from "../../../assets/images";
@@ -13,17 +12,30 @@ class CanvasDrawing extends Component {
         this.undoClicked = this.undoClicked.bind(this);
         this.saveClicked = this.saveClicked.bind(this);
         this.loadClicked = this.loadClicked.bind(this);
-        // this.prevClicked = this.prevClicked.bind(this);
-        // this.nextClicked = this.nextClicked.bind(this);
+
+        this.previousPicture = this.previousPicture.bind(this);
+        this.nextPicture = this.nextPicture.bind(this);
 
         this.state = {
             color: "#ffc600",
-            width: 650,
-            height: 462.5,
+            width: 750,
+            height: 562.5,
             brushRadius: 14,
             lazyRadius: 30,
             saveData: null,
-            imgSrc: images[Math.floor(Math.random() * 9)],
+            imgSrc: "",
+            pointer: "",
+            imgs: [
+                images[0],
+                images[1],
+                images[2],
+                images[3],
+                images[4],
+                images[5],
+                images[6],
+                images[7],
+                images[8],
+            ],
         };
     }
 
@@ -40,11 +52,33 @@ class CanvasDrawing extends Component {
         this.clicked.current.loadSaveData(localStorage.getItem("savedDrawing"));
     };
 
-    // prevClicked = () => {};
+    nextPicture() {
+        if (this.state.pointer === this.state.imgs.length) {
+            this.setState({ pointer: 0 });
+            this.clicked.current.drawImage();
+        } else {
+            this.setState({ pointer: this.state.pointer + 1 });
+            this.clicked.current.drawImage();
+        }
+    }
+    previousPicture() {
+        if (this.state.pointer === 0) {
+            this.setState({ pointer: 8 });
+            this.clicked.current.drawImage();
+        } else {
+            this.setState({ pointer: this.state.pointer - 1 });
+            this.clicked.current.drawImage();
+        }
+    }
 
-    // nextClicked = () => {};
+    componentDidMount() {
+        const randomizer = Math.floor(Math.random() * 8);
+        this.setState({ pointer: randomizer });
+    }
 
     render() {
+        console.log(this.state);
+
         return (
             <div>
                 <CanvasDraw
@@ -55,8 +89,8 @@ class CanvasDrawing extends Component {
                     brushColor={this.state.color}
                     brushRadius={this.state.brushRadius}
                     lazyRadius={this.state.lazyRadius}
-                    imgSrc={this.state.imgSrc}
                     loadTimeOffset={15}
+                    imgSrc={this.state.imgs[this.state.pointer]}
                 />
 
                 <button onClick={() => this.clearClicked()}>Clear Canvas</button>
@@ -65,8 +99,8 @@ class CanvasDrawing extends Component {
                 <button onClick={() => this.loadClicked()}>Load Canvas</button>
 
                 <hr />
-                {/* <button onClick={() => this.prevClicked()}>Previous Background</button>
-                <button onClick={() => this.nextClicked()}>Next Background</button> */}
+                <button onClick={() => this.previousPicture()}>Previous Background</button>
+                <button onClick={() => this.nextPicture()}>Next Background</button>
                 <div>
                     <label>Brush-Radius:</label>
                     <input

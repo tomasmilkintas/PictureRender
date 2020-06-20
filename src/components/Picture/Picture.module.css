@@ -1,6 +1,6 @@
 .Picture {
-    width: 800px;
-    height: 600px;
+    width: 940px;
+    height: 705px;
     margin: auto;
     margin-top: 40px;
     border: 4px dashed #b1afaf;
@@ -13,8 +13,8 @@
 .Uploader {
     position: relative;
     overflow: hidden;
-    width: 800px;
-    height: 600px;
+    width: 940px;
+    height: 705px;
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;

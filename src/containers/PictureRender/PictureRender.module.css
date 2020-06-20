@@ -1,9 +1,10 @@
 .PictureRender {
     width: 100%;
     margin: auto;
-    margin-top: 30px;
-    height: 1000px;
+    height: 852px;
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
 }

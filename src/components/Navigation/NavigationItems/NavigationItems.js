@@ -5,9 +5,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 const navigationItems = () => (
     <ul className={styles.NavigationItems}>
-        <NavigationItem>Home</NavigationItem>
-        <NavigationItem>Picture Render</NavigationItem>
-        <NavigationItem>Results</NavigationItem>
+        <NavigationItem>Your Picture Rendering Masterpiece</NavigationItem>
     </ul>
 );
 

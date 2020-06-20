@@ -16,7 +16,10 @@ class CanvasDrawing extends Component {
         this.previousPicture = this.previousPicture.bind(this);
         this.nextPicture = this.nextPicture.bind(this);
 
+        // this.save = this.save.bind(this);
+
         this.state = {
+            container: "",
             color: "#ffc600",
             width: 750,
             height: 562.5,
@@ -71,6 +74,14 @@ class CanvasDrawing extends Component {
         }
     }
 
+    // save() {
+    //     const canvasSave = document.getElementById("resetCanvas");
+    //     const d = canvasSave.toDataURL("image/png");
+    //     const w = window.open("about:blank", "image from canvas");
+    //     w.document.write("<img src='" + d + "' alt='from canvas'/>");
+    //     console.log("Saved!");
+    // }
+
     componentDidMount() {
         const randomizer = Math.floor(Math.random() * 8);
         this.setState({ pointer: randomizer });
@@ -82,6 +93,7 @@ class CanvasDrawing extends Component {
         return (
             <div>
                 <CanvasDraw
+                    id="resetCanvas"
                     ref={this.clicked}
                     canvasWidth={this.state.width}
                     canvasHeight={this.state.height}
@@ -97,10 +109,12 @@ class CanvasDrawing extends Component {
                 <button onClick={() => this.undoClicked()}>Undo Last Action</button>
                 <button onClick={() => this.saveClicked()}>Save Canvas</button>
                 <button onClick={() => this.loadClicked()}>Load Canvas</button>
+                {/* 
+                <button onClick={() => this.save()} type="button">
+                    save
+                </button> */}
 
                 <hr />
-                <button onClick={() => this.previousPicture()}>Previous Background</button>
-                <button onClick={() => this.nextPicture()}>Next Background</button>
                 <div>
                     <label>Brush-Radius:</label>
                     <input
@@ -125,6 +139,9 @@ class CanvasDrawing extends Component {
                         value={this.state.color}
                         onChange={(e) => this.setState({ color: e.target.value })}
                     />
+                    <hr />
+                    <button onClick={() => this.previousPicture()}>Previous Background</button>
+                    <button onClick={() => this.nextPicture()}>Next Background</button>
                 </div>
             </div>
         );

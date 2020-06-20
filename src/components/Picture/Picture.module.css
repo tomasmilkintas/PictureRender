@@ -1,20 +1,16 @@
 .Picture {
-    width: 940px;
-    height: 705px;
+    width: 947px;
+    height: 728px;
     margin: auto;
     margin-top: 40px;
     border: 4px dashed #b1afaf;
 }
 
-.Picture button {
-    margin-top: 20px;
-}
-
 .Uploader {
     position: relative;
     overflow: hidden;
-    width: 940px;
-    height: 705px;
+    width: 947px;
+    height: 728px;
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;

@@ -10,7 +10,7 @@ class PictureRender extends Component {
         return (
             <Aux>
                 <div className={styles.PictureRender}>
-                    <h2>Your Picture Rendering Masterpiece</h2>
+                    {/* <h2>Your Picture Rendering Masterpiece</h2> */}
                     <Picture />
                 </div>
                 {/* <div>

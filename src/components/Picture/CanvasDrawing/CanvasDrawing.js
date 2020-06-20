@@ -104,7 +104,7 @@ class CanvasDrawing extends Component {
                     loadTimeOffset={15}
                     imgSrc={this.state.imgs[this.state.pointer]}
                 />
-
+                <hr />
                 <button onClick={() => this.clearClicked()}>Clear Canvas</button>
                 <button onClick={() => this.undoClicked()}>Undo Last Action</button>
                 <button onClick={() => this.saveClicked()}>Save Canvas</button>

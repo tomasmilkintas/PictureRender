@@ -3,7 +3,7 @@
     height: 80vh;
     margin: auto;
     margin-top: 40px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
 }
@@ -12,9 +12,9 @@
     position: relative;
     overflow: hidden;
     width: 91vw;
-    height: 800px;
+    height: 757px;
     background-color: #f3f3f3;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
 }

@@ -29,7 +29,7 @@ class CanvasDrawing extends Component {
             lazyRadius: 5,
             saveData: null,
             imgSrc: "",
-            pointer: "",
+            pointer: 0,
             imgs: [
                 images[0],
                 images[1],
@@ -61,7 +61,7 @@ class CanvasDrawing extends Component {
     };
 
     nextPicture() {
-        if (this.state.pointer === this.state.imgs.length) {
+        if (this.state.pointer === this.state.imgs.length - 1) {
             this.setState({ pointer: 0 });
             this.clicked.current.drawImage();
         } else {
@@ -71,7 +71,7 @@ class CanvasDrawing extends Component {
     }
     previousPicture() {
         if (this.state.pointer === 0) {
-            this.setState({ pointer: 8 });
+            this.setState({ pointer: this.state.imgs.length - 1 });
             this.clicked.current.drawImage();
         } else {
             this.setState({ pointer: this.state.pointer - 1 });

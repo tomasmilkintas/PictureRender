@@ -23,9 +23,9 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 300,
-            height: 402,
-            brushRadius: 3,
+            width: 314,
+            height: 432,
+            brushRadius: 5,
             lazyRadius: 5,
             saveData: null,
             imgSrc: "",
@@ -115,13 +115,13 @@ class CanvasDrawing extends Component {
                     />
                 </div>
                 <hr />
-                <button onClick={() => this.previousPicture()}>Previous Background</button>
-                <button onClick={() => this.nextPicture()}>Next Background</button>
+                <button onClick={() => this.previousPicture()}> Previous </button>
+                <button onClick={() => this.nextPicture()}> Next </button>
                 <hr />
-                <button onClick={() => this.clearClicked()}>Clear Canvas</button>
-                <button onClick={() => this.undoClicked()}>Undo Last Action</button>
-                <button onClick={() => this.saveClicked()}>Save Canvas</button>
-                <button onClick={() => this.loadClicked()}>Load Canvas</button>
+                <button onClick={() => this.clearClicked()}>Clear</button>
+                <button onClick={() => this.undoClicked()}>Undo</button>
+                <button onClick={() => this.saveClicked()}>Save</button>
+                <button onClick={() => this.loadClicked()}>Load</button>
 
                 <hr />
                 <div>

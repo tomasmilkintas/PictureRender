@@ -1,6 +1,6 @@
 .Picture {
     width: 90vw;
-    height: 90vh;
+    height: 80vh;
     margin: auto;
     margin-top: 40px;
     display: flex;
@@ -12,7 +12,7 @@
     position: relative;
     overflow: hidden;
     width: 91vw;
-    height: 99vh;
+    height: 86vh;
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;

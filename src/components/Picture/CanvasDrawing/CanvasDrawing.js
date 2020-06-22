@@ -142,7 +142,7 @@ class CanvasDrawing extends Component {
                         }
                     />
 
-                    <label>Color Picker:</label>
+                    <label>Color:</label>
                     <input
                         type="color"
                         value={this.state.color}

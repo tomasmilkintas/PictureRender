@@ -1,10 +1,15 @@
 .PictureRender {
     width: 100%;
     margin: auto;
-    height: 871px;
+    height: 89vh;
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
+/* 
+@media (min-width: 400px) {
+
+@media (min-width: 985px) { */

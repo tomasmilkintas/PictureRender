@@ -42,9 +42,7 @@ class Picture extends Component {
         return (
             <div className={styles.Picture}>
                 <div className={styles.Uploader}>
-                    <div>
-                        <CanvasDrawing hideGrid hideInterface />
-                    </div>
+                    <CanvasDrawing hideGrid hideInterface />
                 </div>
             </div>
         );

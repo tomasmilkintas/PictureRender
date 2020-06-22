@@ -23,8 +23,8 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 750,
-            height: 562.5,
+            width: "50vw",
+            height: "50vh",
             brushRadius: 14,
             lazyRadius: 15,
             saveData: null,
@@ -99,20 +99,21 @@ class CanvasDrawing extends Component {
 
         return (
             <div>
-                <CanvasDraw
-                    hideGrid={this.state.hideGrid}
-                    disabled={this.state.disabled}
-                    hideInterface={this.state.hideInterface}
-                    ref={this.clicked}
-                    canvasWidth={this.state.width}
-                    canvasHeight={this.state.height}
-                    className={styles.CanvasDrawing}
-                    brushColor={this.state.color}
-                    brushRadius={this.state.brushRadius}
-                    lazyRadius={this.state.lazyRadius}
-                    loadTimeOffset={15}
-                    imgSrc={this.state.imgs[this.state.pointer]}
-                />
+                <div className={styles.canvasDrawing}>
+                    <CanvasDraw
+                        hideGrid={this.state.hideGrid}
+                        disabled={this.state.disabled}
+                        hideInterface={this.state.hideInterface}
+                        ref={this.clicked}
+                        canvasWidth={this.state.width}
+                        canvasHeight={this.state.height}
+                        brushColor={this.state.color}
+                        brushRadius={this.state.brushRadius}
+                        lazyRadius={this.state.lazyRadius}
+                        loadTimeOffset={15}
+                        imgSrc={this.state.imgs[this.state.pointer]}
+                    />
+                </div>
                 <hr />
                 <button onClick={() => this.previousPicture()}>Previous Background</button>
                 <button onClick={() => this.nextPicture()}>Next Background</button>

@@ -5,3 +5,9 @@ body {
 input[type="number"] {
     width: 50px;
 }
+
+.canvasDrawing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,7 +1,7 @@
 .PictureRender {
     width: 100%;
     margin: auto;
-    height: 100vh;
+    height: 838px;
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
@@ -9,7 +9,31 @@
     justify-content: center;
     align-items: center;
 }
-/* 
-@media (min-width: 400px) {
 
-@media (min-width: 985px) { */
+@media (min-width: 400px) {
+    .PictureRender {
+        width: 100%;
+        margin: auto;
+        height: 838px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 985px) {
+    .PictureRender {
+        width: 100%;
+        margin: auto;
+        height: 838px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

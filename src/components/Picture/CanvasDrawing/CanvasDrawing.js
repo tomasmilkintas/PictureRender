@@ -23,8 +23,8 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 314,
-            height: 432,
+            width: 800,
+            height: 500,
             brushRadius: 5,
             lazyRadius: 5,
             saveData: null,

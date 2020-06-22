@@ -23,10 +23,10 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: "50vw",
-            height: "50vh",
-            brushRadius: 14,
-            lazyRadius: 15,
+            width: 300,
+            height: 402,
+            brushRadius: 3,
+            lazyRadius: 5,
             saveData: null,
             imgSrc: "",
             pointer: "",
@@ -150,9 +150,7 @@ class CanvasDrawing extends Component {
                     />
                     <hr />
                 </div>
-                <button onClick={() => this.minBrush()}>
-                    Finished? Reduce the brush to zero before exporting
-                </button>
+                <button onClick={() => this.minBrush()}>Finished? Click before exporting</button>
                 <button onClick={() => this.normalBrush()}>Changed your mind?</button>
                 <button onClick={() => exportComponentAsJPEG(this.clicked)}>Export As JPEG</button>
             </div>

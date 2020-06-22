@@ -1,6 +1,6 @@
 .Picture {
-    width: 82vw;
-    height: 80vh;
+    width: 90vw;
+    height: 69vh;
     margin: auto;
     margin-top: 40px;
     display: flex;
@@ -11,10 +11,56 @@
 .Uploader {
     position: relative;
     overflow: hidden;
-    width: 82vw;
+    width: 91vw;
     height: 75vh;
     background-color: #f3f3f3;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (min-width: 400px) {
+    .Picture {
+        width: 90vw;
+        height: 760px;
+        margin: auto;
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Uploader {
+        position: relative;
+        overflow: hidden;
+        width: 87vw;
+        height: 700px;
+        background-color: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .Picture {
+        width: 900px;
+        height: 760px;
+        margin: auto;
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Uploader {
+        position: relative;
+        overflow: hidden;
+        width: 87vw;
+        height: 82vh;
+        background-color: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

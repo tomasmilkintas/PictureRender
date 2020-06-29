@@ -23,10 +23,10 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 800,
-            height: 500,
-            brushRadius: 5,
-            lazyRadius: 5,
+            width: 600,
+            height: 420,
+            brushRadius: 12,
+            lazyRadius: 12,
             saveData: null,
             imgSrc: "",
             pointer: 0,
@@ -95,8 +95,6 @@ class CanvasDrawing extends Component {
     }
 
     render() {
-        console.log(this.state);
-
         return (
             <div>
                 <div className={styles.canvasDrawing}>
@@ -114,45 +112,54 @@ class CanvasDrawing extends Component {
                         imgSrc={this.state.imgs[this.state.pointer]}
                     />
                 </div>
-                <hr />
-                <button onClick={() => this.previousPicture()}> Previous </button>
-                <button onClick={() => this.nextPicture()}> Next </button>
-                <hr />
-                <button onClick={() => this.clearClicked()}>Clear</button>
-                <button onClick={() => this.undoClicked()}>Undo</button>
-                <button onClick={() => this.saveClicked()}>Save</button>
-                <button onClick={() => this.loadClicked()}>Load</button>
 
-                <hr />
-                <div>
-                    <label>Brush-Radius:</label>
-                    <input
-                        type="number"
-                        value={this.state.brushRadius}
-                        onChange={(e) =>
-                            this.setState({ brushRadius: parseInt(e.target.value, 10) })
-                        }
-                    />
-                    <label>Lazy-Radius:</label>
-                    <input
-                        type="number"
-                        value={this.state.lazyRadius}
-                        onChange={(e) =>
-                            this.setState({ lazyRadius: parseInt(e.target.value, 10) })
-                        }
-                    />
+                <div className={styles.Buttons}>
+                    <div className={styles.Group}>
+                        <button onClick={() => this.previousPicture()}> &lt; </button>
+                        <button onClick={() => this.nextPicture()}> &gt; </button>
+                    </div>
+                    <div className={styles.Group}>
+                        <button onClick={() => this.clearClicked()}>Clear Canvas</button>
+                        <button onClick={() => this.undoClicked()}>Undo &#9100;</button>
+                    </div>
 
-                    <label>Color:</label>
+                    <div className={styles.Group}>
+                        <button onClick={() => this.saveClicked()}>Save</button>
+                        <button onClick={() => this.loadClicked()}>Rewind</button>
+                    </div>
+
                     <input
                         type="color"
                         value={this.state.color}
                         onChange={(e) => this.setState({ color: e.target.value })}
                     />
-                    <hr />
+                    <div className={styles.Group}>
+                        <label>Brush:</label>
+                        <input
+                            type="number"
+                            value={this.state.brushRadius}
+                            onChange={(e) =>
+                                this.setState({ brushRadius: parseInt(e.target.value, 10) })
+                            }
+                        />
+                        <label>Lazy:</label>
+                        <input
+                            type="number"
+                            value={this.state.lazyRadius}
+                            onChange={(e) =>
+                                this.setState({ lazyRadius: parseInt(e.target.value, 10) })
+                            }
+                        />
+                    </div>
+
+                    <div className={styles.Group}>
+                        <button onClick={() => this.minBrush()}>Click before exporting</button>
+                        <button onClick={() => this.normalBrush()}>Changed your mind?</button>
+                    </div>
+                    <div>
+                        <button onClick={() => exportComponentAsJPEG(this.clicked)}>Export</button>
+                    </div>
                 </div>
-                <button onClick={() => this.minBrush()}>Finished? Click before exporting</button>
-                <button onClick={() => this.normalBrush()}>Changed your mind?</button>
-                <button onClick={() => exportComponentAsJPEG(this.clicked)}>Export As JPEG</button>
             </div>
         );
     }

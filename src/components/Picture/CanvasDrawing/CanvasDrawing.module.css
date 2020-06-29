@@ -1,5 +1,14 @@
 input[type="number"] {
     width: 35px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="color"] {
+    border: none;
+    width: 65px;
+    height: 32px;
 }
 
 .canvasDrawing {
@@ -7,8 +16,25 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+}
+
+.Buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.Group {
+    margin: 5px;
+}
+
+.Group > button,
+.Group > input {
+    margin: 5px;
 }

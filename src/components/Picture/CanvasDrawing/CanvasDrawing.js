@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { exportComponentAsJPEG } from "react-component-export-image";
 
 import CanvasDraw from "react-canvas-draw";
-import images from "../../../assets/images";
 import styles from "./CanvasDrawing.module.css";
+import { images } from "../../../assets/images";
 
 class CanvasDrawing extends Component {
     constructor(props) {
@@ -23,24 +23,14 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 600,
-            height: 420,
+            width: 450,
+            height: 540,
             brushRadius: 12,
             lazyRadius: 12,
             saveData: null,
             imgSrc: "",
             pointer: 0,
-            imgs: [
-                images[0],
-                images[1],
-                images[2],
-                images[3],
-                images[4],
-                images[5],
-                images[6],
-                images[7],
-                images[8],
-            ],
+            imgs: [...images],
             disabled: false,
             hideGrid: false,
             hideInterface: false,
@@ -70,7 +60,7 @@ class CanvasDrawing extends Component {
         }
     }
     previousPicture() {
-        if (this.state.pointer === 0) {
+        if (this.state.pointer < 0) {
             this.setState({ pointer: this.state.imgs.length - 1 });
             this.clicked.current.drawImage();
         } else {
@@ -89,10 +79,10 @@ class CanvasDrawing extends Component {
         this.setState({ lazyRadius: 15 });
     }
 
-    componentDidMount() {
-        const randomizer = Math.floor(Math.random() * 8);
-        this.setState({ pointer: randomizer });
-    }
+    // componentDidMount() {
+    //     const randomizer = Math.floor(Math.random() * (this.state.imgs.length - 1));
+    //     this.setState({ pointer: randomizer });
+    // }
 
     render() {
         return (

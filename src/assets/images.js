@@ -1,13 +1,7 @@
-import Minion from "./minion.jpg";
-import mrBean from "./mrbean.jpeg";
-import SuccessBaby from "./success-baby.jpg";
-import Trump from "./trump.jpeg";
-import Face from "./face.jpg";
-import Peppa from "./peppa.jpg";
-import Rose from "./rose.jpg";
-import Woman from "./woman.jpg";
-import ConnectDots from "./connectDots.jpg";
+import Dog from "./mobileImages/dog.jpg";
+import Face from "./mobileImages/face.jpg";
+import Flying from "./mobileImages/flying.jpg";
+import Head from "./mobileImages/head.jpg";
+import Pineapple from "./mobileImages/pineapple.jpg";
 
-const images = [Minion, mrBean, SuccessBaby, Trump, Face, Peppa, Rose, Woman, ConnectDots];
-
-export default images;
+export const images = [Dog, Face, Flying, Head, Pineapple];

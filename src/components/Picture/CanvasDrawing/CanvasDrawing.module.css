@@ -20,6 +20,7 @@ input[type="color"] {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+    height: 50vh !important;
 }
 
 .Buttons {

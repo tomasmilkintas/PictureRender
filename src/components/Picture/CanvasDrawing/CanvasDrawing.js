@@ -24,7 +24,7 @@ class CanvasDrawing extends Component {
             container: "",
             color: "#ffc600",
             width: 450,
-            height: 540,
+            height: "50vh",
             brushRadius: 12,
             lazyRadius: 12,
             saveData: null,
@@ -105,18 +105,16 @@ class CanvasDrawing extends Component {
 
                 <div className={styles.Buttons}>
                     <div className={styles.Group}>
+                        <button onClick={() => this.clearClicked()}>Clear Canvas</button>
                         <button onClick={() => this.previousPicture()}> &lt; </button>
                         <button onClick={() => this.nextPicture()}> &gt; </button>
-                    </div>
-                    <div className={styles.Group}>
-                        <button onClick={() => this.clearClicked()}>Clear Canvas</button>
                         <button onClick={() => this.undoClicked()}>Undo &#9100;</button>
                     </div>
 
-                    <div className={styles.Group}>
+                    {/* <div className={styles.Group}>
                         <button onClick={() => this.saveClicked()}>Save</button>
                         <button onClick={() => this.loadClicked()}>Rewind</button>
-                    </div>
+                    </div> */}
 
                     <input
                         type="color"

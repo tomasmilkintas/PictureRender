@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Aux from "../Aux/Aux";
 // import styles from "./Layout.module.css";
 import PictureRender from "../../containers/PictureRender/PictureRender";
-import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
+import Toolbar from "../../components/Toolbar/Toolbar";
 
 class Layout extends Component {
     render() {

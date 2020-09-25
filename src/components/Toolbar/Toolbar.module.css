@@ -1,7 +1,7 @@
 .Toolbar {
-    height: 11vh;
+    height: 10vh;
     background-color: rgb(142, 117, 223);
-    color: wheat;
+    color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -16,7 +16,6 @@
 
 @media (max-width: 499px) {
     .Toolbar {
-        height: 11vh;
         display: flex;
         justify-content: space-around;
         align-items: center;

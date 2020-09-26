@@ -5,6 +5,14 @@ import CanvasDraw from "react-canvas-draw";
 import styles from "./CanvasDrawing.module.css";
 import { images } from "../../../assets/images";
 
+import BrushIcon from "@material-ui/icons/Brush";
+import SaveAltIcon from "@material-ui/icons/SaveAlt";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import SettingsBackupRestoreIcon from "@material-ui/icons/SettingsBackupRestore";
+import GestureIcon from "@material-ui/icons/Gesture";
+import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@material-ui/icons";
+import FormatColorFillIcon from "@material-ui/icons/FormatColorFill";
+
 class CanvasDrawing extends Component {
     constructor(props) {
         super(props);
@@ -23,8 +31,6 @@ class CanvasDrawing extends Component {
         this.state = {
             container: "",
             color: "#ffc600",
-            width: 450,
-            height: "50vh",
             brushRadius: 12,
             lazyRadius: 12,
             saveData: null,
@@ -105,24 +111,37 @@ class CanvasDrawing extends Component {
 
                 <div className={styles.Buttons}>
                     <div className={styles.Group}>
-                        <button onClick={() => this.clearClicked()}>Clear Canvas</button>
-                        <button onClick={() => this.previousPicture()}> &lt; </button>
-                        <button onClick={() => this.nextPicture()}> &gt; </button>
-                        <button onClick={() => this.undoClicked()}>Undo &#9100;</button>
+                        <button onClick={() => this.clearClicked()}>
+                            <HighlightOffIcon />
+                        </button>
+                        <button onClick={() => this.previousPicture()}>
+                            {" "}
+                            <ArrowBackIosOutlined />{" "}
+                        </button>
+                        <button onClick={() => this.nextPicture()}>
+                            {" "}
+                            <ArrowForwardIosOutlined />{" "}
+                        </button>
+                        <button onClick={() => this.undoClicked()}>
+                            <SettingsBackupRestoreIcon />
+                        </button>
                     </div>
-
                     {/* <div className={styles.Group}>
                         <button onClick={() => this.saveClicked()}>Save</button>
                         <button onClick={() => this.loadClicked()}>Rewind</button>
                     </div> */}
-
-                    <input
-                        type="color"
-                        value={this.state.color}
-                        onChange={(e) => this.setState({ color: e.target.value })}
-                    />
                     <div className={styles.Group}>
-                        <label>Brush:</label>
+                        <FormatColorFillIcon />
+                        <input
+                            type="color"
+                            value={this.state.color}
+                            onChange={(e) => this.setState({ color: e.target.value })}
+                        />
+                    </div>
+                    <div className={styles.Group}>
+                        <label>
+                            <BrushIcon />
+                        </label>
                         <input
                             type="number"
                             value={this.state.brushRadius}
@@ -130,7 +149,9 @@ class CanvasDrawing extends Component {
                                 this.setState({ brushRadius: parseInt(e.target.value, 10) })
                             }
                         />
-                        <label>Lazy:</label>
+                        <label>
+                            <GestureIcon />
+                        </label>
                         <input
                             type="number"
                             value={this.state.lazyRadius}
@@ -139,13 +160,14 @@ class CanvasDrawing extends Component {
                             }
                         />
                     </div>
-
-                    <div className={styles.Group}>
+                    {/* <div className={styles.Group}>
                         <button onClick={() => this.minBrush()}>Click before exporting</button>
                         <button onClick={() => this.normalBrush()}>Changed your mind?</button>
-                    </div>
+                    </div> */}
                     <div>
-                        <button onClick={() => exportComponentAsJPEG(this.clicked)}>Export</button>
+                        <button onClick={() => exportComponentAsJPEG(this.clicked)}>
+                            <SaveAltIcon />
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
 
-import Layout from "./hoc/Layout/Layout";
+import Toolbar from "./components/Toolbar/Toolbar";
+import Picture from "./components/Picture/Picture";
 
 function App() {
     return (
         <div className="App">
-            <Layout />
+            <Toolbar />
+            <Picture />
         </div>
     );
 }

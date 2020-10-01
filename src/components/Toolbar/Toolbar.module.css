@@ -10,10 +10,6 @@
     z-index: 90;
 }
 
-.Toolbar nav {
-    height: auto;
-}
-
 @media (max-width: 499px) {
     .Toolbar {
         display: flex;

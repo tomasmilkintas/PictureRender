@@ -126,10 +126,7 @@ class CanvasDrawing extends Component {
                             <SettingsBackupRestoreIcon />
                         </button>
                     </div>
-                    {/* <div className={styles.Group}>
-                        <button onClick={() => this.saveClicked()}>Save</button>
-                        <button onClick={() => this.loadClicked()}>Rewind</button>
-                    </div> */}
+
                     <div className={styles.Group}>
                         <FormatColorFillIcon />
                         <input
@@ -160,10 +157,7 @@ class CanvasDrawing extends Component {
                             }
                         />
                     </div>
-                    {/* <div className={styles.Group}>
-                        <button onClick={() => this.minBrush()}>Click before exporting</button>
-                        <button onClick={() => this.normalBrush()}>Changed your mind?</button>
-                    </div> */}
+
                     <div>
                         <button onClick={() => exportComponentAsJPEG(this.clicked)}>
                             <SaveAltIcon />

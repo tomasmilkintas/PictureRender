@@ -25,6 +25,7 @@ input[type="color"] {
 
 /* the actual image */
 .canvasDrawing > div {
+    margin-top: 15% !important;
     height: 30vw !important;
     width: 25vw !important;
 }
@@ -40,6 +41,9 @@ input[type="color"] {
 
 .Group {
     margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Group > button,
@@ -47,16 +51,20 @@ input[type="color"] {
     margin: 5px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 960px) {
     .canvasDrawing > div {
-        height: 100vw !important;
-        width: 90vw !important;
+        margin-top: 15% !important;
+
+        height: 55vh !important;
+        width: 75vw !important;
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 460px) {
     .canvasDrawing > div {
-        height: 20vw !important;
-        width: 25vw !important;
+        margin-top: 15% !important;
+
+        height: 55vh !important;
+        width: 60vw !important;
     }
 }

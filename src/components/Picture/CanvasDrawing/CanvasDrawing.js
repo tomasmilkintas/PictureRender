@@ -16,7 +16,7 @@ import FormatColorFillIcon from "@material-ui/icons/FormatColorFill";
 class CanvasDrawing extends Component {
     constructor(props) {
         super(props);
-        this.clicked = React.createRef(null);
+        this.clicked = React.createRef();
         this.clearClicked = this.clearClicked.bind(this);
         this.undoClicked = this.undoClicked.bind(this);
         this.saveClicked = this.saveClicked.bind(this);
@@ -64,15 +64,19 @@ class CanvasDrawing extends Component {
             this.setState({ pointer: this.state.pointer + 1 });
             this.clicked.current.drawImage();
         }
+
+        console.log(this.state.pointer);
     }
+
     previousPicture() {
-        if (this.state.pointer < 0) {
+        if (this.state.pointer === 0) {
             this.setState({ pointer: this.state.imgs.length - 1 });
             this.clicked.current.drawImage();
         } else {
             this.setState({ pointer: this.state.pointer - 1 });
             this.clicked.current.drawImage();
         }
+        console.log(this.state.pointer);
     }
 
     minBrush() {
@@ -84,11 +88,6 @@ class CanvasDrawing extends Component {
         this.setState({ brushRadius: 14 });
         this.setState({ lazyRadius: 15 });
     }
-
-    // componentDidMount() {
-    //     const randomizer = Math.floor(Math.random() * (this.state.imgs.length - 1));
-    //     this.setState({ pointer: randomizer });
-    // }
 
     render() {
         return (
@@ -111,9 +110,6 @@ class CanvasDrawing extends Component {
 
                 <div className={styles.Buttons}>
                     <div className={styles.Group}>
-                        <button onClick={() => this.clearClicked()}>
-                            <HighlightOffIcon />
-                        </button>
                         <button onClick={() => this.previousPicture()}>
                             {" "}
                             <ArrowBackIosOutlined />{" "}
@@ -122,23 +118,10 @@ class CanvasDrawing extends Component {
                             {" "}
                             <ArrowForwardIosOutlined />{" "}
                         </button>
-                        <button onClick={() => this.undoClicked()}>
-                            <SettingsBackupRestoreIcon />
-                        </button>
                     </div>
 
                     <div className={styles.Group}>
-                        <FormatColorFillIcon />
-                        <input
-                            type="color"
-                            value={this.state.color}
-                            onChange={(e) => this.setState({ color: e.target.value })}
-                        />
-                    </div>
-                    <div className={styles.Group}>
-                        <label>
-                            <BrushIcon />
-                        </label>
+                        <BrushIcon />
                         <input
                             type="number"
                             value={this.state.brushRadius}
@@ -146,9 +129,14 @@ class CanvasDrawing extends Component {
                                 this.setState({ brushRadius: parseInt(e.target.value, 10) })
                             }
                         />
-                        <label>
-                            <GestureIcon />
-                        </label>
+                        <FormatColorFillIcon />
+                        <input
+                            type="color"
+                            value={this.state.color}
+                            onChange={(e) => this.setState({ color: e.target.value })}
+                        />
+
+                        <GestureIcon />
                         <input
                             type="number"
                             value={this.state.lazyRadius}
@@ -158,9 +146,15 @@ class CanvasDrawing extends Component {
                         />
                     </div>
 
-                    <div>
+                    <div className={styles.Group}>
+                        <button onClick={() => this.clearClicked()}>
+                            <HighlightOffIcon />
+                        </button>
                         <button onClick={() => exportComponentAsJPEG(this.clicked)}>
                             <SaveAltIcon />
+                        </button>
+                        <button onClick={() => this.undoClicked()}>
+                            <SettingsBackupRestoreIcon />
                         </button>
                     </div>
                 </div>

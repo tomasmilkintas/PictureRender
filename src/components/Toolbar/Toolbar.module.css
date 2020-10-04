@@ -18,5 +18,6 @@
         padding: 0px;
         box-sizing: border-box;
         z-index: 90;
+        font-size: 10px;
     }
 }

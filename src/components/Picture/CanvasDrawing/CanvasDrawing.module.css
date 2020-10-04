@@ -20,7 +20,6 @@ input[type="color"] {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    height: 50vh !important;
 }
 
 /* the actual image */
@@ -28,6 +27,7 @@ input[type="color"] {
     margin-top: 15% !important;
     height: 30vw !important;
     width: 25vw !important;
+    object-fit: contain;
 }
 
 .Buttons {
@@ -56,7 +56,7 @@ input[type="color"] {
         margin-top: 15% !important;
 
         height: 55vh !important;
-        width: 75vw !important;
+        width: 85% !important;
     }
 }
 
@@ -65,6 +65,6 @@ input[type="color"] {
         margin-top: 15% !important;
 
         height: 55vh !important;
-        width: 60vw !important;
+        width: 450px !important;
     }
 }
